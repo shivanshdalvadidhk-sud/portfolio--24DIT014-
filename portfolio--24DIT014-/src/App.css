@@ -1,36 +1,56 @@
+* {
+  box-sizing: border-box;
+}
+
 body {
   margin: 0;
-  font-family: Arial, sans-serif;
-  background: #323436;
-  color: #141415;
+  min-height: 100vh;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: linear-gradient(135deg, #a9aec0, #1d7cdb);
+  color: #111827;
+}
+
+#root {
+  min-height: 100vh;
 }
 
 .app-shell {
-  max-width: 640px;
+  max-width: 760px;
   margin: 30px auto;
   padding: 24px;
-  background: #050505;
-  border-radius: 16px;
-  box-shadow: 0 10px 25px rgba(15, 23, 42, 0.08);
+  border-radius: 20px;
+  box-shadow: 0 20px 45px rgba(15, 23, 42, 0.12);
+  transition: all 0.25s ease;
+}
+
+.app-shell.theme-dark {
+  background: #111827;
+  color: #f9fafb;
+}
+
+.app-shell.theme-light {
+  background: #ffffff;
+  color: #111827;
 }
 
 .app-header {
   text-align: center;
   margin-bottom: 24px;
-  padding: 22px 16px;
-  border-radius: 12px;
-  background: #f1052c;
+  padding: 24px 20px;
+  border-radius: 16px;
+  background: linear-gradient(135deg, #2563eb, #0f766e);
+  color: #ffffff;
 }
 
 .app-header h1 {
   font-size: 32px;
   margin: 0 0 8px;
-  color: #0b0b0b;
+  color: #ffffff;
 }
 
 .app-header p {
   margin: 0;
-  color: #0c0c0c;
+  color: #e0f2fe;
 }
 
 .nav-bar {
@@ -40,6 +60,7 @@ body {
 
 .nav-bar ul {
   display: inline-flex;
+  flex-wrap: wrap;
   gap: 10px;
   margin: 0;
   padding: 0;
@@ -47,51 +68,132 @@ body {
 }
 
 .nav-button {
-  border: 1px solid #f1f3f5;
-  background: #0e0e0e;
+  display: inline-block;
+  border: 1px solid #cbd5e1;
+  background: #111827;
   padding: 10px 14px;
   border-radius: 999px;
   cursor: pointer;
   font-size: 0.95rem;
-  transition: background 0.2s ease, border-color 0.2s ease;
+  color: #f8fafc;
+  text-decoration: none;
+  transition: transform 0.2s ease, background 0.2s ease, border-color 0.2s ease;
 }
 
 .nav-button:hover {
-  background: #00050b;
+  transform: translateY(-1px);
+  background: #1f2937;
 }
 
 .nav-button.active {
-  background: #0f1011;
-  border-color: #3b82f6;
+  background: #2563eb;
+  border-color: #2563eb;
+}
+
+.theme-light .nav-button {
+  background: #f8fafc;
+  color: #111827;
+  border-color: #94a3b8;
+}
+
+.theme-light .nav-button:hover {
+  background: #e2e8f0;
 }
 
 .about-section,
 .skills-section,
-.footer-section {
+.footer-section,
+.page-section,
+.highlights-section {
   margin-bottom: 20px;
   padding: 20px;
-  border: 1px solid #101011;
-  border-radius: 12px;
-  background: #7e7f80;
+  border: 1px solid #dbe4f0;
+  border-radius: 14px;
+  background: #f8fafc;
+  color: #111827;
+  line-height: 1.6;
+}
+
+.theme-dark .about-section,
+.theme-dark .skills-section,
+.theme-dark .footer-section,
+.theme-dark .page-section,
+.theme-dark .highlights-section {
+  background: #1f2937;
+  border-color: #374151;
+  color: #f9fafb;
+}
+
+.theme-light .about-section,
+.theme-light .skills-section,
+.theme-light .footer-section,
+.theme-light .page-section,
+.theme-light .highlights-section {
+  background: #f8fafc;
+  border-color: #cbd5e1;
 }
 
 .about-section h2,
-.skills-section h2 {
+.skills-section h2,
+.page-section h2,
+.highlights-section h2 {
   margin: 0 0 12px;
   font-size: 24px;
+  color: inherit;
 }
 
-.skills-section ul {
+.skills-section ul,
+.page-section ul,
+.highlights-section ul {
   padding-left: 20px;
   margin: 0;
 }
 
-.skills-section li {
+.skills-section li,
+.page-section li,
+.highlights-section li {
   margin-bottom: 8px;
 }
 
 .footer-section p {
   margin: 8px 0;
+}
+
+.toggle-button,
+.theme-toggle {
+  margin-bottom: 16px;
+  padding: 10px 14px;
+  border: none;
+  border-radius: 10px;
+  background: #2563eb;
+  color: white;
+  cursor: pointer;
+  font-weight: 600;
+}
+
+.toggle-button:hover,
+.theme-toggle:hover {
+  background: #1d4ed8;
+}
+
+.contact-label {
+  display: block;
+  margin-bottom: 8px;
+  font-weight: 700;
+}
+
+.contact-input {
+  width: 100%;
+  padding: 10px 12px;
+  border-radius: 10px;
+  border: 1px solid #94a3b8;
+  box-sizing: border-box;
+  font-size: 1rem;
+}
+
+.contact-preview {
+  margin-top: 12px;
+  font-weight: 600;
 }
 
 a {

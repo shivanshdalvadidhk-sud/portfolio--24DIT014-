@@ -1,9 +1,11 @@
 function Skills(props) {
+  const skillList = props.skillList || []
+
   return (
     <section className="skills-section" id="skills">
       <h2>Skills</h2>
       <ul>
-        {props.skillList.map((skill) => (
+        {skillList.map((skill) => (
           <li key={skill}>{skill}</li>
         ))}
       </ul>

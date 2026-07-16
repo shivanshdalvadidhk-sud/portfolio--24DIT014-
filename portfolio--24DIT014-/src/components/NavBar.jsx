@@ -1,22 +1,24 @@
-function NavBar(props) {
+import { NavLink } from 'react-router-dom'
+
+function NavBar() {
   return (
     <nav className="nav-bar">
       <ul>
-        {props.sections.map((section) => (
-          <li key={section.id}>
-            <button
-              type="button"
-              className={
-                section.id === props.activeSection
-                  ? 'nav-button active'
-                  : 'nav-button'
-              }
-              onClick={() => props.onSelectSection(section.id)}
-            >
-              {section.label}
-            </button>
-          </li>
-        ))}
+        <li>
+          <NavLink to="/" className={({ isActive }) => (isActive ? 'nav-button active' : 'nav-button')}>
+            Home
+          </NavLink>
+        </li>
+        <li>
+          <NavLink to="/projects" className={({ isActive }) => (isActive ? 'nav-button active' : 'nav-button')}>
+            Projects
+          </NavLink>
+        </li>
+        <li>
+          <NavLink to="/contact" className={({ isActive }) => (isActive ? 'nav-button active' : 'nav-button')}>
+            Contact
+          </NavLink>
+        </li>
       </ul>
     </nav>
   )
